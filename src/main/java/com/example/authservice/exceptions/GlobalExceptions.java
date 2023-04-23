@@ -1,4 +1,4 @@
-package com.example.userservice.exceptions;
+package com.example.authservice.exceptions;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
