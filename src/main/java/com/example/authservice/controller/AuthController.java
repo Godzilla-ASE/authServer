@@ -36,12 +36,13 @@ public class AuthController {
     // build create employee REST API
     @PostMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Authentication createUser(@PathVariable long id) {
+    public ResponseEntity<String> createUser(@PathVariable long id) {
 
         // generate random token
         String token = UUID.randomUUID().toString();
         Authentication authentication = new Authentication(id, token);
-        return authRepository.save(authentication);
+        authRepository.save(authentication);
+        return ResponseEntity.ok(token);
     }
 
     @GetMapping("/{id}")
