@@ -36,7 +36,7 @@ public class AuthController {
     // build create employee REST API
     @PostMapping("/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<String> createUser(@PathVariable long id) {
+    public ResponseEntity<String> createToken(@PathVariable long id) {
 
         // generate random token
         String token = UUID.randomUUID().toString();
