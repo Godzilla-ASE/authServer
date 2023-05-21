@@ -42,7 +42,7 @@ public class AuthController {
         String token = UUID.randomUUID().toString();
         Authentication authentication = new Authentication(id, token);
         authRepository.save(authentication);
-        return ResponseEntity.ok(token);
+        return ResponseEntity.status(HttpStatus.CREATED).body(token);
     }
 
     @GetMapping("/{id}")
@@ -55,7 +55,7 @@ public class AuthController {
     
     // build delete employee REST API
     @DeleteMapping("{id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity<HttpStatus> deleteUser(@PathVariable long id){
 
         Authentication authentication = authRepository.findById(id)
